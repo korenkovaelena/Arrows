@@ -26,20 +26,19 @@ public class Main {
         int index1 = sequence.indexOf(">>-->");
         int index2 = sequence.indexOf("<--<<");
         if (index1 != -1 || index2 != -1) {
-            String s= sequence;
             count = countArrow(sequence, ">>-->", count);
-            sequence = s;
             count = countArrow(sequence, "<--<<", count);
         }
         return count;
     }
     public static int countArrow(String sequence, String arrow, int count)  {
-        int index = sequence.indexOf(arrow);
+        String s= sequence;
+        int index = s.indexOf(arrow);
         while (index != -1 ) {
-            index = sequence.indexOf(arrow);
+            index = s.indexOf(arrow);
             if (index >= 0 ){
                 count++;
-                sequence = sequence.substring(index+1);
+                s = s.substring(index+1);
             }
         }
         return  count;
